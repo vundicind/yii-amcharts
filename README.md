@@ -9,6 +9,11 @@ Requirements
 * Yii 1.1.14 or above
 * PHP 5.3 or above
 
+License
+-------
+
+This extension is distributed under the [MIT License](http://opensource.org/licenses/MIT).
+
 Installation
 -------------
 
