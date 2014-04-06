@@ -1,0 +1,17 @@
+{
+    "name": "vundicind/yii-amcharts",
+    "description": "AmCharts Widget for Yii",
+    "keywords": ["yii", "amcharts"],
+    "type": "yii-extension",
+    "license": "",
+    "authors": [{
+            "name": "Radu Dumbrăveanu",
+            "email": "vundicind@gmail.com",
+            "homepage": "http://vundicind.blogspot.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "yiisoft/yii": ">=1.1.0",
+    }
+}
