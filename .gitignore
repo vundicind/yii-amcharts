@@ -1,6 +1,8 @@
 assets/*
 !assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+
+# gedit temporary files
+*~
+
+# phpStorm project files
+.idea
