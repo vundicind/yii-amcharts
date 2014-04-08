@@ -6,32 +6,32 @@
  * @author Radu Dumbrăveanu <vundicind@gmail.com>
  * @link https://github.com/vundicind/yii-amcharts/
  */
-class AmChartsWidget extends CWidget
-{
+class AmChartsWidget extends CWidget {
 
-    protected $_baseScript = 'amcharts';
+    protected $baseScript = 'amcharts';
 
-	/**
-	 * @var array the tab configuration.
-	 */
+    /** @var array the amCharts chart configuration options. */
     public $options = array();
 
+    /** @var array the AmCharts singleton configuration options. */
+    public $setupOptions = array();
 
 	/** @var string[] the Javascript event handlers. */
     public $events = array();
-    public $setupOptions = array();
 
     /** @var array the HTML attributes for the widget container. */
     public $htmlOptions = array();
-    public $scripts = array();
-    public $embeddedScriptOptions = array();
 
+    /** @var array additional js files to include. */
+    public $scripts = array();
+
+    /** @var array the embedded script configuration options. */
+    public $embeddedScriptOptions = array();
 
     /**
      * Initializes the widget.
      */
-    public function init()
-    {
+    public function init() {
         // check if options parameter is a json string
         if (is_string($this->options)) {
             if (!$this->options = CJSON::decode($this->options)) {
@@ -39,43 +39,44 @@ class AmChartsWidget extends CWidget
             }
         }
 
-        
-
-
         // merge options with default values
         $defaultOptions = array('type' => 'serial');
         $this->options = CMap::mergeArray($defaultOptions, $this->options);
-        array_unshift($this->scripts, $this->_baseScript);
 
-        $this->embeddedScriptOptions = CMap::mergeArray(array('chartVarGlobal' => false, 'chartVar' => 'chart'), $this->embeddedScriptOptions);
+        // merge embeddedScriptOptions with default values
+        $defaultEmbeddedScriptOptions = array('chartVarGlobal' => false, 'chartVar' => 'chart');
+        $this->embeddedScriptOptions = CMap::mergeArray($defaultEmbeddedScriptOptions, $this->embeddedScriptOptions);
 
         switch ($this->options['type']) {
             case 'serial':
-                $this->scripts[] = 'serial';
+                $typeScript = 'serial';
                 break;
             case 'pie':
-                $this->scripts[] = 'pie';
+                $typeScript = 'pie';
                 break;
             case 'xy':
-                $this->scripts[] = 'xy';
+                $typeScript = 'xy';
                 break;
             case 'radar':
-                $this->scripts[] = 'radar';
+                $typeScript = 'radar';
                 break;
             case 'funnel':
-                $this->scripts[] = 'funnel';
+                $typeScript = 'funnel';
                 break;
             case 'gauge':
-                $this->scripts[] = 'gauge';
+                $typeScript = 'gauge';
                 break;
         }
+
+        // prepend amCharts scripts to the begining of the additional js files array
+        array_unshift($this->scripts, $typeScript);
+        array_unshift($this->scripts, $this->baseScript);
     }
 
     /**
      * Renders the widget.
      */
-    public function run()
-    {
+    public function run() {
         if (isset($this->htmlOptions['id'])) {
             $id = $this->htmlOptions['id'];
         } else {
@@ -131,8 +132,7 @@ class AmChartsWidget extends CWidget
      * @param string the id of the script to be inserted into the page
      * @param string the embedded script to be inserted into the page
      */
-    protected function registerScripts($id, $embeddedScript)
-    {
+    protected function registerScripts($id, $embeddedScript) {
         $basePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR;
         $baseUrl = Yii::app()->getAssetManager()->publish($basePath, false, 1, YII_DEBUG);
 
@@ -141,7 +141,6 @@ class AmChartsWidget extends CWidget
 
         // register additional scripts
         $extension = YII_DEBUG ? '.js' : '.min.js';
-        $cs->registerScriptFile("{$baseUrl}/{$this->_baseScript}{$extension}", CClientScript::POS_HEAD);
         foreach ($this->scripts as $script) {
             $cs->registerScriptFile("{$baseUrl}/{$script}{$extension}", CClientScript::POS_HEAD);
         }
