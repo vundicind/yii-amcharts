@@ -231,8 +231,8 @@ $this->widget('amcharts.AmChartsWidget', array(
 
 This example was taken from [Line Chart with Scroll and Zoom](http://www.amcharts.com/demos/line-chart-with-scroll-and-zoom/) example from the [Demos](http://www.amcharts.com/demos/) page.
 
-Credists
---------
+Credits
+-------
 
 This extension was inspired from:
 
