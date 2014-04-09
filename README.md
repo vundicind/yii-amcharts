@@ -19,11 +19,12 @@ Installation
 
 ### Installing with Composer
 
-If you use [Composer](https://getcomposer.org/) to manage your project dependencies, you can install *yii-amcharts* like this:
+If you use [Composer](https://getcomposer.org/) to manage your project dependencies, you can install *yii-pickadate*
+using the following commands:
 
-```
-$ php composer.phar config repositories.yii-amcharts vcs http://github.com/vundicind/yii-amcharts
-$ php composer.phar require vundicind/yii-amcharts dev-master
+```shell
+php composer.phar config repositories.yii-amcharts vcs http://github.com/vundicind/yii-amcharts
+php composer.phar require vundicind/yii-amcharts dev-master
 ```
 
 ### Installing by hand
