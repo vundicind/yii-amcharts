@@ -12,7 +12,7 @@ Requirements
 License
 -------
 
-This extension is distributed under the [MIT License](http://opensource.org/licenses/MIT).
+This extension is distributed under the [MIT License](https://github.com/vundicind/yii-amcharts/blob/master/LICENSE).
 
 Installation
 -------------
@@ -234,7 +234,7 @@ This example was taken from [Line Chart with Scroll and Zoom](http://www.amchart
 Credits
 -------
 
-This extension was inspired from:
+Inspired by:
 
 * [eamchartwidget](http://www.yiiframework.com/extension/eamchartwidget)
 * [yii2-amcharts](http://www.yiiframework.com/extension/yii2-amcharts)
