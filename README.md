@@ -12,7 +12,7 @@ Requirements
 License
 -------
 
-This extension is distributed under the [MIT License](https://github.com/vundicind/yii-amcharts/blob/master/LICENSE).
+This extension is free software, available under the terms of [MIT License](https://github.com/vundicind/yii-amcharts/blob/master/LICENSE).
 
 Installation
 -------------
