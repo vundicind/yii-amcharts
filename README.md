@@ -91,9 +91,9 @@ $this->widget('amcharts.AmChartsWidget', array(
 ?>
 ```
 
-Or you can use classic PHP arrays to confgure the widget.
+Or you can use classic PHP arrays to configure the widget.
 
-```
+```php
 <?php
 $this->widget('amcharts.AmChartsWidget', array(
     'htmlOptions' => array(
