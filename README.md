@@ -31,7 +31,7 @@ php composer.phar require vundicind/yii-amcharts dev-master
 
 Extract the contents of the archive under `protected/extensions/`.
 
-*Important:* Downlaod the *JavaScript CHARTS* archive from http://www.amcharts.com/download/ and copy the contents of the `amcharts` directory (from archive) to the `assests` directory of extension. 
+*Important:* Due to the license of the amCharts you will have to download the *JavaScript CHARTS* archive from http://www.amcharts.com/download/ and copy the contents of the `amcharts` directory (from archive) to the `assests` directory of extension.
 
 Configuration
 -------------
